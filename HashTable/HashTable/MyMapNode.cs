@@ -86,31 +86,6 @@ namespace HashTable
             keyValue<K, V> item = new keyValue<K, V>() { key = key, value = value };
             linkedlist.AddLast(item);
         }
-        /// <summary>
-        /// Removes the value provided by key.
-        /// </summary>
-        /// <param name="key">The key.</param>
-        public void Remove(K key)
-        {
-            int position = GetArrayPostion(key);
-            LinkedList<keyValue<K, V>> linkedlist = GetLinkedlist(position);
-
-            bool itemFound = false;
-
-            keyValue<K, V> foundItem = default(keyValue<K, V>);
-            foreach (keyValue<K, V> item in linkedlist)
-            {
-                if (item.key.Equals(key))
-                {
-                    itemFound = true;
-                    foundItem = item;
-                }
-            }
-            if (itemFound)
-            {
-                linkedlist.Remove(foundItem);
-            }
-        }
-    
+       
     }
 }
