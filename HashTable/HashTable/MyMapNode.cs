@@ -86,6 +86,32 @@ namespace HashTable
             keyValue<K, V> item = new keyValue<K, V>() { key = key, value = value };
             linkedlist.AddLast(item);
         }
-       
+        /// <summary>
+        /// UC2:-Ability to find Frequency of word in a large Paragraph phrase
+        /// Gives the count the of word provided.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public int GetFrequency(V value)
+        {
+            int frequency = 0;
+            ///Iterating to get the key value of each item.
+            foreach (LinkedList<keyValue<K, V>> list in items)
+            {
+                ///Checking if key is not null 
+                if (list == null)
+                    continue;
+                ///Iterating to get the value of the item in linked list.
+                foreach (keyValue<K, V> item in list)
+                {
+                    if (item.Equals(null))
+                        continue;
+                    if (item.value.Equals(value))
+                        frequency++;
+                }
+            }
+            return frequency;
+        }
+
     }
 }
