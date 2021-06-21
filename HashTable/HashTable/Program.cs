@@ -1,5 +1,4 @@
 ﻿using System;
-
 namespace HashTable
 {
     class Program
@@ -34,8 +33,10 @@ namespace HashTable
                 nodeone.Add(key, word);
                 key++;
             }
-            Console.WriteLine("Frequency :" + nodeone.GetFrequency("putting"));
-
+            Console.WriteLine("Frequency :" + nodeone.GetFrequency("avoidable"));
+            //UC3:-
+            nodeone.RemoveValue("avoidable");
+            Console.WriteLine("Frequency :" + nodeone.GetFrequency("avoidable"));
         }
     }
 }

@@ -111,7 +111,54 @@ namespace HashTable
                 }
             }
             return frequency;
+             
         }
+        /// <summary>
+        /// Removes the value provided by key.
+        /// </summary>
+        /// <param name="key">The key.</param>
+        public void Remove(K key)
+        {
+            int position = GetArrayPostion(key);
+            LinkedList<keyValue<K, V>> linkedlist = GetLinkedlist(position);
 
+            bool itemFound = false;
+
+            keyValue<K, V> foundItem = default(keyValue<K, V>);
+            foreach (keyValue<K, V> item in linkedlist)
+            {
+                if (item.key.Equals(key))
+                {
+                    itemFound = true;
+                    foundItem = item;
+                }
+            }
+            if (itemFound)
+            {
+                linkedlist.Remove(foundItem);
+            }
+        }
+        /// <summary>
+        /// Removes the given value.
+        /// </summary>
+        /// <param name="value"></param>
+        public void RemoveValue(V value)
+        {
+            foreach (LinkedList<keyValue<K, V>> list in items)
+            {
+                if (list == null)
+                    continue;
+                foreach (keyValue<K, V> item in list)
+                {
+                    if (item.Equals(null))
+                        continue;
+                    if (item.value.Equals(value))
+                    {
+                        Remove(item.key);
+                        break;
+                    }
+                }
+            }
+        }
     }
 }
